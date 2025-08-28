@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerBaseState
 {
+    private bool alreadyAppliedDealing;
+    
     public PlayerAttackState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }

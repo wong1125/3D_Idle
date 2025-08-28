@@ -18,6 +18,7 @@ public class HealthBar : MonoBehaviour
         maxHealth = health.MaxHealth;
         currentHealth = maxHealth;
     }
+
     private void OnEnable()
     {
         health.OnHealthChange += ChangeBar;

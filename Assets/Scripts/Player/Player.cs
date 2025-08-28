@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [field: Header("Animations")]
     [field: SerializeField] public AnimationData AnimationData { get; private set; }
 
+    private Weapon weapon;
 
     private PlayerStateMachine stateMachine;
 
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         controller = GetComponent<CharacterController>();
         Animator = GetComponent<Animator>();
         AnimationData.Initialize();
+        weapon = GetComponentInChildren<Weapon>();
 
         stateMachine = new PlayerStateMachine(this);
     }
@@ -35,5 +37,8 @@ public class Player : MonoBehaviour
         stateMachine.Update();
     }
 
-
+    public void WeaponReset()
+    {
+        weapon.ResethittedColliders();
+    }
 }
