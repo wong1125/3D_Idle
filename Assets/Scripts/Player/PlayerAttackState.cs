@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerBaseState
 {
-    private bool alreadyAppliedDealing;
-    
     public PlayerAttackState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -13,7 +11,6 @@ public class PlayerAttackState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("공격 상태로 전환 시도");
         StartAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
     }
 

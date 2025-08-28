@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -12,6 +13,7 @@ public class Health : MonoBehaviour
     public event Action OnDie;
 
     private bool isPlayer;
+    private bool isDie = false;
 
     private void Awake()
     {
@@ -38,11 +40,11 @@ public class Health : MonoBehaviour
     public void ChangeHealth(float healthChange)
     {
         currentHealth = Mathf.Max(currentHealth + healthChange, 0);
+        OnHealthChange?.Invoke(currentHealth);
 
-        OnHealthChange(currentHealth);
-        
-        if (currentHealth == 0)
+        if (currentHealth <= 0 && !isDie)
         {
+            isDie = true;
             OnDie?.Invoke();
         }
     }

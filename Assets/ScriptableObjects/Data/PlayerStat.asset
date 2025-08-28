@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516bfb1aa01452548a74806b1e2971cf, type: 3}
   m_Name: PlayerStat
   m_EditorClassIdentifier: 
-  <SearchRange>k__BackingField: 20
+  <MaxHealth>k__BackingField: 100
+  <AttackPower>k__BackingField: 10
+  <SearchRange>k__BackingField: 40
   <MoveSpeed>k__BackingField: 1
   <RotateSpeed>k__BackingField: 5
   <targetMask>k__BackingField:

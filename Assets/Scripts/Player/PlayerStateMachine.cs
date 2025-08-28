@@ -25,5 +25,12 @@ public class PlayerStateMachine : StateMachine
     public void SetTargetEnmey(Transform transform)
     {
         targetEnmey = transform;
+        targetEnmey.gameObject.GetComponent<Health>().OnDie += ResetTarget;
+    }
+
+    void ResetTarget()
+    {
+        targetEnmey = null;
+        ChangeState(MoveState);
     }
 }

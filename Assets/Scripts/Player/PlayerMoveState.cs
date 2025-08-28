@@ -16,6 +16,7 @@ public class PlayerMoveState : PlayerBaseState
     {
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.MoveParameterHash);
+        IsTargetSpotted = false;
     }
 
     public override void Exit()

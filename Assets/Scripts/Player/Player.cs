@@ -13,22 +13,26 @@ public class Player : MonoBehaviour
     [field: Header("Animations")]
     [field: SerializeField] public AnimationData AnimationData { get; private set; }
 
+    private Health health;
     private Weapon weapon;
 
     private PlayerStateMachine stateMachine;
+
+    private bool isPlayerDie;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         Animator = GetComponent<Animator>();
         AnimationData.Initialize();
+        health = GetComponent<Health>();
         weapon = GetComponentInChildren<Weapon>();
 
         stateMachine = new PlayerStateMachine(this);
     }
     void Start()
     {
-        
+        health.OnDie += OnDie;
         stateMachine.ChangeState(stateMachine.MoveState);
     }
 
@@ -41,4 +45,13 @@ public class Player : MonoBehaviour
     {
         weapon.ResethittedColliders();
     }
+
+    public void OnDie()
+    {
+        Animator.SetTrigger("Die");
+        isPlayerDie = true;
+        enabled = false;
+    }
+
+
 }

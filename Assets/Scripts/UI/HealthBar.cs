@@ -15,6 +15,10 @@ public class HealthBar : MonoBehaviour
     {
         mainCam = Camera.main;
         health = GetComponentInParent<Health>();
+    }
+
+    private void Start()
+    {
         maxHealth = health.MaxHealth;
         currentHealth = maxHealth;
     }
@@ -37,6 +41,7 @@ public class HealthBar : MonoBehaviour
 
     void ChangeBar(float currentHealth)
     {
+        Debug.Log(transform.root.name + ": " + currentHealth);
         this.currentHealth = currentHealth;
         healthBarImage.fillAmount = this.currentHealth / maxHealth;
     }

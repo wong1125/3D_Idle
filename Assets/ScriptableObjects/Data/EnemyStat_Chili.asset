@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnemyStat_Chili
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
-  <AttackPower>k__BackingField: 10
-  <SearchRange>k__BackingField: 20
+  <AttackPower>k__BackingField: 2
+  <SearchRange>k__BackingField: 10
   <MoveSpeed>k__BackingField: 1
   <RotateSpeed>k__BackingField: 5
   <targetMask>k__BackingField:

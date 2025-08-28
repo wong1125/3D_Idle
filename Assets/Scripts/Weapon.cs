@@ -6,27 +6,24 @@ public class Weapon : MonoBehaviour
 {
     private bool isEnemy;
     
-    private Collider parentCollider;
+    [SerializeField] Collider parentCollider;
     private int damage;
 
     private List<Collider> hittedColliders = new List<Collider>();
 
     private void Awake()
     {
-        if (this.CompareTag("Enemy"))
+        if (this.transform.root.CompareTag("Enemy"))
             isEnemy = true;
         else
             isEnemy = false;
 
-        //플레이어는 Weapon이 자식에, 적은 자신에게 컴포넌트가 붙음
         if (isEnemy)
         {
-            parentCollider = GetComponent<Collider>();
-            damage = (int)GetComponent<Enemy>().EnemyStat.AttackPower;
+            damage = (int)GetComponentInParent<Enemy>().EnemyStat.AttackPower;
         }
         else
         {
-            parentCollider = GetComponentInParent<Collider>();
             damage = (int)GetComponentInParent<Player>().PlayerStat.AttackPower;
         }
     }
